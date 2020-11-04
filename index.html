@@ -1,74 +1,160 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Our First JavaScript Program</title>
-	
-	<script type="text/javascript">
-		function greetings()
-		{
-			alert("Mabuhay! Salamat sa pagbisita!");
-		}
-		
-		function english()
-		{
-			
-		}
-		
-		function filipino()
-		{
-			
-		}
-		
-	</script>
+  <title>Eco-Volunteer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
 </head>
 
-<body onload="greetings(alert);">
+<!-- Onload will show the Home link as the current directory !-->
+<body onload="onload()">
+  <!-- HEADER: Contains the Navigation Links !-->
+  <header class="header">
+    <a href="index.html" class="logo"><img src="https://cdn.pixabay.com/photo/2020/06/24/21/08/people-5337730_960_720.png" style="max-width: 30px;"> Eco-Volunteer</a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li><a onclick="openPage('Home', this, '#f4f4f4')">Home</a></li>
+      <li><a onclick="openPage('Volunteer', this, '#f4f4f4')">Volunteer</a></li>
+      <li><a onclick="openPage('About', this, '#f4f4f4')">About Me</a></li>
+    </ul>
+  </header>
+  <br><br><br>
+  <!-- MAIN CONTENT !-->
+  <main>
+    <div id="Home" class="wrapper">
+      <div class="cards">
+        <div class="center">
+          <h2 class="animate__animated animate__fadeInDown">Welcome!</h2>
+          <br>
+          <h3 class="animate__animated animate__fadeIn animate__delay-1s">
+            This is my homepage.
+          </h3>
+          <h3 class="animate__animated animate__fadeIn animate__delay-1s">
+            Feel free to wander around!
+          </h3>
+        </div>
+        <div class="center animate__animated animate__fadeIn animate__delay-2s">
+          <img src="https://cdn.pixabay.com/photo/2020/06/24/21/08/people-5337730_960_720.png" style="filter: invert(1); max-width: 60px;">
+          <br>
+          <br>
+          <p>
+            Eco-Volunteer is the final output created in partial fulfillment of the
+            <a href="https://www.coursera.org/learn/web-development/home/welcome">
+            Introduction to Web Development</a>. This course is available in Coursera taught by Daniel Randall from University of California, Davis.
+          </p>
+          <br>
+          <p>
+            For our final project, we are tasked to create a complete HTML form.
+          </p>
+          <p>
+            The form should containing various form input types, CSS and JavaScript validation.
+          </p>
+          <p>
+            The form feature can be accessed through the Volunteer page.
+          </p>
+          <br>
+          <p>
+            All images used are free for commercial use.
+          </p>
+          <p>
+            Background image used is from <a href="https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80">
+            Unsplash</a>.
+          </p>
+          <p>
+            Logo used can be found in <a href="https://cdn.pixabay.com/photo/2020/06/24/21/08/people-5337730_960_720.png">
+            Pixabay</a>.
+          </p>
+        </div>
+      </div>
+    </div>
 
-<h2 align="center">Our First JavaScript Program</h1>
+    <div id="Volunteer" class="wrapper">
+      <div class="cards">
+        <div class="center">
+          <h2 class="animate__animated animate__fadeInDown">Volunteer Now!</h2>
+          <br>
+          <h3 class="animate__animated animate__fadeIn animate__delay-1s">
+            Fill out the volunteer form and be part of the growing community of Eco-Warriors!
+          </h3>
+        </div>
+        <form name="contactForm" class="animate__animated animate__fadeIn animate__delay-2s" method="post" action="#" onsubmit="return validateForm()">
+            <div class="row"  align="center">
+              <label style="font-size: 30px; ">Volunteer Form</label>
+            </div>
+            <div class="row">
+                <label>First Name</label>
+                <input type="text" name="fname" placeholder="John" onblur="validatefName();">
+                <div class="error" id="fnameErr"></div>
+            </div>
+            <div class="row">
+                <label>Last Name</label>
+                <input type="text" name="lName" placeholder="Smith" onblur="validateLName();">
+                <div class="error" id="lnameErr"></div>
+            </div>
+            <div class="row">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="abc@domain.com" onblur="validateEmail();">
+                <div class="error" id="emailErr"></div>
+            </div>
+            <div class="row">
+                <label>Country</label>
+                <input type="country" name="country" placeholder="USA" onblur="validateCountry();">
+                <div class="error" id="countryErr"></div>
+            </div>
+            <div class="row">
+                <label>Number</label>
+                <input type="number" name="number" placeholder="10 digit number" onblur="validateNumber();" onkeypress="return isNumberKey(event);">
+                <div class="error" id="numberErr"></div>
+            </div>
+            <div class="row">
+                <label>Gender</label>
+                <div class="form-inline">
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="nonbinary"> Non-binary</label>
+                </div>
+                <div class="error" id="genderErr"></div>
+            </div>
+            <div class="row">
+                <label>Age</label>
+                <input type="number" name="age" placeholder="Age (number only)" onblur="validateAge();" onkeypress="return isNumberKey(event);">
+                <div class="error" id="ageErr"></div>
+            </div>
+            <div class="row" align="center">
+                <input class="button" type="submit" value="Volunteer!" onclick="document.getElementById('id01').style.display='block'">
+            </div>
+        </form>
+      </div>
+    </div>
 
-<a href="https://cdn.pixabay.com/photo/2018/05/18/15/30/webdesign-3411373_960_720.jpg">
-<img src="https://cdn.pixabay.com/photo/2018/05/18/15/30/webdesign-3411373_960_720.jpg" style="display:block;margin-left:auto;margin-right:auto;width:30%"/>
-</a>
-
-<h3 align="center" style="color:blue;">What is JavasScript?</h3>
-
-<p align="center">JavaScript is a programming language that makes the webpage dynamic and interactive.
-<br>How, you say? Remember the "prompt" that popped up when you webpage loaded? That is a product of JavaScript.
-<br>
-<br>You may verify if this page contains JavaScript by right-clicking and inspecting the page source.
-</p>
-
-<table align="center" border="0">
-
-<tr>
-<td></td>
-<td>If it does, you can tick the checkbox beside each item if the requirement is met:</td>
-</tr>
-
-<tr><td></td></tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td>HTML page with a header and body section</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td>JavaScript program that displays the alert "Nice to Meet You!" in your native language when the page is run in a browser.</td>
-</tr>
-
-<tr>
-<td><input type="checkbox"></td>
-<td>The script should use 1 function, created in the header of the page and that function should be called correctly in the body of the HTML page.n</td>
-</tr>
-
-<tr><td><br></td></tr>
-
-<tr>
-<td></td>
-<td>Once you're done, please do evaluate my work. Thank you!</td>
-</tr>
-</table>
-
+    <div id="About" class="wrapper">
+      <div class="cards">
+        <div class="center">
+          <h2 class="animate__animated animate__fadeInDown">About Me</h2>
+          <br>
+        </div>
+        <div class="center animate__animated animate__fadeIn animate__delay-1s">
+          <img src="https://cdn.pixabay.com/photo/2020/06/24/21/08/people-5337730_960_720.png" style="filter: invert(1); max-width: 60px;">
+          <br>
+          <br>
+          <p>
+            Hey there! Thank you for visiting my site. I am quite a beginner so please bear with my output for the meantime.
+          </p>
+          <br>
+          <p>
+            I am Leon, the creator of this page. I have set this site using Github Pages.
+          </p>
+          <p>
+            I might practice from time to time, and if you ever stumble upon this page again, you can take a look at my Github Repository just to see if I'm working on something new.
+          </p>
+          <br>
+          <p> Who knows, we might work together in the future. Anyway, that's it for now. See ya!
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
