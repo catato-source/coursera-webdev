@@ -20,7 +20,7 @@ function openPage(pageName,elmnt,color) {
 
 /* Displays Homepage on loading */
 function onload() {
-  var pageName = "Volunteer";
+  var pageName = "Home";
   document.getElementById(pageName).style.display = "block";
 }
 
@@ -156,11 +156,10 @@ function validateAge() {
   var ageErr = true;
 
   if(age == "") {
-      printError("ageErr", "Please enter your exact age.");
+      printError("ageErr", "Please enter an age.");
       return ageErr;
   } else {
-      var regex = /^[1-9]\d{9}$/;
-      if(regex.test(age) === false) {
+      if(age < 10 ||  age > 150) {
           printError("ageErr", "Please enter a valid age.");
       } else{
           printError("ageErr", "");
