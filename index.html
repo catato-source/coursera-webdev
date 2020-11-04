@@ -119,7 +119,7 @@
             </div>
             <div class="row">
                 <label>Age</label>
-                <input type="number" name="age" placeholder="Age (number only)" onblur="validateAge();" onkeypress="return isNumberKey(event);">
+                <input type="number" name="age" placeholder="Age (10-150 only)" onblur="validateAge();" onkeypress="return isNumberKey(event);" maxlength="3">
                 <div class="error" id="ageErr"></div>
             </div>
             <div class="row" align="center">
