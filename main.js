@@ -186,4 +186,5 @@ function validateForm() {
     var dataPreview = "Thank you for volunteering, "+ fname + "!\nYou will now be redirected to the homepage.";
     alert(dataPreview);
   }
+  onload();
 }
