@@ -5,13 +5,13 @@
   --secondary: #19456B;
   --hover: #11698e;
   --fonts: #F8F1F1;
+  font-family: "Lato", sans-serif;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Lato", sans-serif;
 }
 
 .row::after {
@@ -20,13 +20,25 @@
   display: table;
 }
 
+[class*="col-"] {
+  float: left;
+  padding: 0px 40px;
+}
+
 body {
   background: var(--primary);
 }
 
-nav {
+.navbar {
   background: #19456b;
-  padding: 15px 60px;
+  width: 100%;
+  padding: 20px 40px;
+  vertical-align: middle;
+}
+
+.menu li.item{
+  font-size: 16px;
+  padding: 5px 20px;
 }
 
 ul {
@@ -38,11 +50,6 @@ a {
   text-decoration: none;
 }
 
-.menu li {
-  font-size: 16px;
-  padding: 10px 50px;
-}
-
 .menu li a {
   display: block;
 }
@@ -51,23 +58,17 @@ a {
   font-size: 25px;
 }
 
-.left {
-  float:left;
-  width:35%;
-  padding:15px;
-  margin-top: 190px;
-  padding-left: 50px;;
+.container:before,
+.container:after {
+  content: "";
+  display: table;
 }
-
-.right {
-  float:left;
-  width:65%;
-  padding-left: 60px;
-  margin-top: 120px;
+.container:after {
+  clear: both;
 }
 
 img {
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -75,7 +76,6 @@ h1 {
   font-size: 38px;
   font-weight: bold;
 }
-
 
 p {
   font-family: "Lato", sans-serif;
@@ -140,12 +140,9 @@ p {
 }
 
 /* Tablet Menu */
-@media all and (min-width: 612px) {
+@media all and (min-width: 468px) {
   .menu {
     justify-content: left;
-  }
-  nav {
-    padding: 10px 20px;
   }
   .logo {
     flex: 1;
@@ -164,8 +161,8 @@ p {
   }
   .button a {
     text-decoration: none;
-    padding: 10px 25px;
     background: #F8F1F1;
+    padding: 10px 20px;
     border-radius: 30px;
     color: var(--secondary);
   }
@@ -178,7 +175,7 @@ p {
   }
 }
 
-@media all and (min-width: 990px) {
+@media all and (min-width: 768px) {
   .item {
     display: block;
     width: auto;
@@ -195,26 +192,33 @@ p {
   .button {
     order: 2;
   }
-  .menu li {
-    padding: 15px 25px;
+  .col-5 {
+    width: 41.66%;
+    padding: 200px 40px;
+    vertical-align: middle;
   }
-  .menu li.button {
-    padding-right: 20px;
+  .col-7 {
+    width: 58.33%;
+    padding: 150px 40px;
+    vertical-align: middle;
+    text-align: center;
   }
 }
 
-@media only screen and (max-width: 990px) {
-  .left, .right {
-    margin-top: 60px;
-    width: 100%;
-    padding: 0 60px;
+@media all and (max-width: 918px) {
+  p {
+    font-size: 20px;
   }
   h1 {
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 30px;
   }
-  p {
-    font-size: 25px;
-    font-weight: lighter;
+}
+
+
+@media only screen and (max-width: 1241px) {
+  /* For mobile phones: */
+  .col-s-12 {
+    width: 100%;
+    padding: 40px;
   }
 }
