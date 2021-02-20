@@ -1,298 +1,220 @@
-/*  This CSS is a compilation of modified classes referenced from w3schools.com
-*   Created by: Leon Sylvester Punsalan
-*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 
-/* Cabin Font imported from Google */
-@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --primary: #B2CEF8;
+  --secondary: #19456B;
+  --hover: #11698e;
+  --fonts: #F8F1F1;
 }
 
-html {
-  font-family: 'Cabin', sans-serif;
-  position:relative;
-  height: 100%;
-  background-color: #f4f4f4;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+body {
+  background: var(--primary);
+}
+
+nav {
+  background: #19456b;
+  padding: 15px 60px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 a {
-  color: white;
+  color: #F8F1F1;
+  text-decoration: none;
 }
 
-a.logo {
-  color: black;
+.menu li {
+  font-size: 16px;
+  padding: 10px 50px;
+}
+
+.menu li a {
+  display: block;
+}
+
+.logo a {
+  font-size: 25px;
+}
+
+.left {
+  float:left;
+  width:35%;
+  padding:15px;
+  margin-top: 190px;
+  padding-left: 50px;;
+}
+
+.right {
+  float:left;
+  width:65%;
+  padding-left: 60px;
+  margin-top: 120px;
 }
 
 img {
-  width: 100%;
+  max-width: 90%;
   height: auto;
 }
 
 h1 {
-  color: white;
-  font-size: 500%;
+  font-size: 38px;
+  font-weight: bold;
 }
 
-h2 {
-  color: white;
-  font-size: 400%;
-}
-
-h3 {
-  color: white;
-  font-size: 150%;
-}
-
-h4 {
-  color: black;
-  font-size: 200%;
-}
 
 p {
-  color: white;
-  font-size: 120%
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: lighter;
 }
 
+/* Mobile Menu */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
 
-/* Navigation Bar Stuff credits to https://codepen.io/mutedblues/pen/MmPNPG */
-.header {
-  background-color: #fff;
-  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-  position: fixed;
+.toggle {
+  order: 1;
+}
+
+.item.button {
+  order: 2;
+}
+
+.item {
   width: 100%;
-  z-index: 3;
+  text-align: center;
+  order: 3;
+  display: none;
 }
 
-.header ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.header li a {
+.item.active {
   display: block;
-  padding: 20px 20px;
-  border-right: 1px solid #f4f4f4;
-  text-decoration: none;
-  color: black;
 }
 
-.header li a:hover,
-.header .menu-btn:hover,
-.header .logo:hover {
-  background-color: #f4f4f4;
+.toggle {
   cursor: pointer;
 }
 
-.header .logo {
-  display: block;
-  float: left;
-  font-size: 2em;
-  padding: 10px 20px;
-  text-decoration: none;
-  vertical-align: middle;
-}
-
-/* Menu */
-.header .menu {
-  clear: both;
-  max-height: 0;
-  transition: max-height .2s ease-out;
-  cursor: pointer;
-}
-
-/* Menu Icon */
-.header .menu-icon {
-  cursor: pointer;
+.bars {
+  background: #999;
   display: inline-block;
-  float: right;
-  padding: 28px 10px;
-  position: relative;
-  user-select: none;
-}
-
-.header .menu-icon .navicon {
-  background: #333;
-  display: block;
   height: 2px;
   position: relative;
-  transition: background .2s ease-out;
-  width: 20px;
+  width: 18px;
 }
 
-.header .menu-icon .navicon:before,
-.header .menu-icon .navicon:after {
-  background: #333;
-  content: '';
-  display: block;
-  height: 100%;
-  position: relative;
-  transition: all .2s ease-out;
-  width: 100%;
+.bars::before, .bars::after {
+  background: #999;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: absolute;
+  width: 18px
 }
 
-.header .menu-icon .navicon:before {
+.bars::before {
   top: 5px;
 }
 
-.header .menu-icon .navicon:after {
+.bars::after {
   top: -5px;
 }
 
-/* Menu Button */
-.header .menu-btn {
-  display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-  max-height: 180px;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon {
-  background: transparent;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
-  transform: rotate(-45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
-  transform: rotate(45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-  top: 0;
-}
-
-/* Responsive Navigation Bar 48em = 768px */
-@media (min-width: 32em) {
-  .header li {
-    float: left;
+/* Tablet Menu */
+@media all and (min-width: 612px) {
+  .menu {
+    justify-content: left;
   }
-  .header li a {
-    padding: 20px 20px;
+  nav {
+    padding: 10px 20px;
   }
-  .header .menu {
-    clear: none;
-    float: right;
-    max-height: none;
+  .logo {
+    flex: 1;
   }
-  .header .menu-icon {
+  .item.button {
+    width: auto;
+    order: 1;
+    display: block;
+    padding-right: 0px;
+  }
+  .toggle {
+    order: 2;
+  }
+  .button.secondary {
+    border: 0;
+  }
+  .button a {
+    text-decoration: none;
+    padding: 10px 25px;
+    background: #F8F1F1;
+    border-radius: 30px;
+    color: var(--secondary);
+  }
+
+  .button a:hover {
+    transition: all .25s;
+    background: var(--hover);
+    border-color: var(--hover);
+    color: var(--fonts);
+  }
+}
+
+@media all and (min-width: 990px) {
+  .item {
+    display: block;
+    width: auto;
+  }
+  .toggle {
     display: none;
   }
+  .logo {
+    order: 0;
+  }
+  .item {
+    order: 1;
+  }
+  .button {
+    order: 2;
+  }
+  .menu li {
+    padding: 15px 25px;
+  }
+  .menu li.button {
+    padding-right: 20px;
+  }
 }
 
-/* Wrappers, Cards and Containers for Contents */
-.wrapper {
-  display: none;
-  overflow: hidden;
-  width: 100%
-}
-
-.cards {
-   min-height: 760px;
-   display: grid;
-   grid-gap: 2px;
-   width: 100%
-}
-
-.card {
-  float: left;
-  max-width: 100%;
-  color: white;
-  padding-top: 20px;
-  height: auto;
-}
-
-.center {
-  margin: auto;
-  padding: 15px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-/* Responsive Content (Column) */
-@media (min-width: 768px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Responsive Background Image for each tablink */
-#Home , #Volunteer, #About {
-  background: url("https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-/* Form Content */
-form {
-    background-color: #F0FFF0;
-    padding: 20px 15px;
-    margin: auto;
-    border-radius: 25px;
-    height: auto;
-    width: auto;
-}
-label {
-    display: block;
-    margin-bottom: 5px
-}
-label i {
-    color: #999;
-    font-size: 100%;
-}
-input, select {
-    border: 1px solid #ccc;
-    padding: 5px;
-    display: block;
-    min-width: 250px;
-    box-sizing: border-box;
-    border-radius: 8px;
-}
-
-.row {
-    padding-bottom: 10px;
-    min-width: 250px;
-}
-.form-inline {
-    border: 1px solid #ccc;
-    padding: 8px 10px 4px;
-    border-radius: 2px;
-}
-.form-inline label, .form-inline input {
-    display: inline-block;
-    width: auto;
-    padding-right: 10px;
-}
-
-.error {
-    color: red;
-    font-size: 90%;
-}
-
-.button {
-    font-size: 110%;
-    font-weight: bold;
-    background: teal;
-    color: white;
-    border: 0px;
-    border-radius: 20px;
-    margin-top: 10px;
-    cursor: pointer;
+@media only screen and (max-width: 990px) {
+  .left, .right {
+    margin-top: 60px;
     width: 100%;
-    text-align: center;
-}
-
-.button:hover {
-  background-color: turquoise;
-  color: black;
-  cursor: pointer;
+    padding: 0 60px;
+  }
+  h1 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 25px;
+    font-weight: lighter;
+  }
 }

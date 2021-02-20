@@ -1,160 +1,46 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
+
 <head>
-  <title>Eco-Volunteer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Artistree</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
-<!-- Onload will show the Home link as the current directory !-->
-<body onload="onload()">
-  <!-- HEADER: Contains the Navigation Links !-->
-  <header class="header">
-    <a href="index.html" class="logo"><img src="https://cdn.pixabay.com/photo/2020/06/24/21/08/people-5337730_960_720.png" style="max-width: 30px;"> Eco-Volunteer</a>
-    <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul class="menu">
-      <li><a onclick="openPage('Home', this, '#f4f4f4')">Home</a></li>
-      <li><a onclick="openPage('Volunteer', this, '#f4f4f4')">Volunteer</a></li>
-      <li><a onclick="openPage('About', this, '#f4f4f4')">About Me</a></li>
-    </ul>
-  </header>
-  <br><br><br>
-  <!-- MAIN CONTENT !-->
-  <main>
-    <div id="Home" class="wrapper">
-      <div class="cards">
-        <div class="center">
-          <h2 class="animate__animated animate__fadeInDown">Welcome!</h2>
-          <br>
-          <h3 class="animate__animated animate__fadeIn animate__delay-1s">
-            This is my homepage.
-          </h3>
-          <h3 class="animate__animated animate__fadeIn animate__delay-1s">
-            Feel free to wander around!
-          </h3>
-        </div>
-        <div class="center animate__animated animate__fadeIn animate__delay-2s">
-          <img src="https://cdn.pixabay.com/photo/2020/06/24/21/08/people-5337730_960_720.png" style="filter: invert(1); max-width: 60px;">
-          <br>
-          <br>
-          <p>
-            Eco-Volunteer is the final output created in partial fulfillment of the
-            <a href="https://www.coursera.org/learn/web-development/home/welcome">
-            Introduction to Web Development</a>. This course is available in Coursera taught by Daniel Randall from University of California, Davis.
-          </p>
-          <br>
-          <p>
-            For our final project, we are tasked to create a complete HTML form.
-          </p>
-          <p>
-            The form should containing various form input types, CSS and JavaScript validation.
-          </p>
-          <p>
-            The form feature can be accessed through the Volunteer page.
-          </p>
-          <br>
-          <p>
-            All images used are free for commercial use.
-          </p>
-          <p>
-            Background image used is from <a href="https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80">
-            Unsplash</a>.
-          </p>
-          <p>
-            Logo used can be found in <a href="https://cdn.pixabay.com/photo/2020/06/24/21/08/people-5337730_960_720.png">
-            Pixabay</a>.
-          </p>
-        </div>
-      </div>
-    </div>
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <nav>
+      <ul class="menu">
+        <li class="logo"><a href="">ARTISTREE</a></li>
+        <li class="item"><a href="">HOME</a></li>
+        <li class="item"><a href="">ABOUT</a></li>
+        <li class="item"><a href="">CONTACT</a></li>
+        <li class="item button"><a href="">CONNECT</a></l>
+        <li class="toggle"><span class="bars"></span></li>
+      </ul>
+    </nav>
 
-    <div id="Volunteer" class="wrapper">
-      <div class="cards">
-        <div class="center">
-          <h2 class="animate__animated animate__fadeInDown">Volunteer Now!</h2>
-          <br>
-          <h3 class="animate__animated animate__fadeIn animate__delay-1s">
-            Fill out the volunteer form and be part of the growing community of Eco-Warriors!
-          </h3>
-        </div>
-        <form name="contactForm" class="animate__animated animate__fadeIn animate__delay-2s" method="post" action="index.html" onsubmit="return validateForm()">
-            <div class="row"  align="center">
-              <label style="font-size: 30px; ">Volunteer Form</label>
-            </div>
-            <div class="row">
-                <label>First Name</label>
-                <input type="text" name="fname" placeholder="John" onblur="validatefName();">
-                <div class="error" id="fnameErr"></div>
-            </div>
-            <div class="row">
-                <label>Last Name</label>
-                <input type="text" name="lName" placeholder="Smith" onblur="validateLName();">
-                <div class="error" id="lnameErr"></div>
-            </div>
-            <div class="row">
-                <label>Email Address</label>
-                <input type="email" name="email" placeholder="abc@domain.com" onblur="validateEmail();">
-                <div class="error" id="emailErr"></div>
-            </div>
-            <div class="row">
-                <label>Country</label>
-                <input type="country" name="country" placeholder="USA" onblur="validateCountry();">
-                <div class="error" id="countryErr"></div>
-            </div>
-            <div class="row">
-                <label>Number</label>
-                <input type="number" name="number" placeholder="10 digit number" onblur="validateNumber();" onkeypress="return isNumberKey(event);">
-                <div class="error" id="numberErr"></div>
-            </div>
-            <div class="row">
-                <label>Gender</label>
-                <div class="form-inline">
-                    <label><input type="radio" name="gender" value="male"> Male</label>
-                    <label><input type="radio" name="gender" value="female"> Female</label>
-                    <label><input type="radio" name="gender" value="nonbinary"> Non-binary</label>
-                </div>
-                <div class="error" id="genderErr"></div>
-            </div>
-            <div class="row">
-                <label>Age</label>
-                <input type="number" name="age" placeholder="Age (10-150 only)" onblur="validateAge();" onkeypress="return isNumberKey(event);" maxlength="3">
-                <div class="error" id="ageErr"></div>
-            </div>
-            <div class="row" align="center">
-                <input class="button" type="submit" value="Volunteer!" onclick="document.getElementById('id01').style.display='block'">
-            </div>
-        </form>
-      </div>
-    </div>
 
-    <div id="About" class="wrapper">
-      <div class="cards">
-        <div class="center">
-          <h2 class="animate__animated animate__fadeInDown">About Me</h2>
-          <br>
+        <div class="left">
+          <h1>GROW YOUR NETWORK THROUGH ARTISTREE</h1><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis parturient elementum bibendum ultrices magna eget scelerisque id a. Consequat a et integer dictum. Augue volutpat, donec maecenas tellus, vel. Quis diam lectus tellus amet pulvinar nec vestibulum euismod laoreet.</p>
         </div>
-        <div class="center animate__animated animate__fadeIn animate__delay-1s">
-          <img src="https://cdn.pixabay.com/photo/2020/06/24/21/08/people-5337730_960_720.png" style="filter: invert(1); max-width: 60px;">
-          <br>
-          <br>
-          <p>
-            Hey there! Thank you for visiting my site. I am quite a beginner so please bear with my output for the meantime.
-          </p>
-          <br>
-          <p>
-            I am Leon, the creator of this page. I have set this site using Github Pages.
-          </p>
-          <p>
-            I might practice from time to time, and if you ever stumble upon this page again, you can take a look at my Github Repository just to see if I'm working on something new.
-          </p>
-          <br>
-          <p> Who knows, we might work together in the future. Anyway, that's it for now. See ya!
-          </p>
+
+
+        <div class="right">
+          <img src="/people.png">
         </div>
-      </div>
-    </div>
-  </main>
+
+  <script src="/main.js" async defer></script>
 </body>
+
 </html>
